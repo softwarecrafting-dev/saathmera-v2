@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Back shortly, SaathMera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
+<style>
+/*
+ * Maintenance (503). The web server shows this page while the app is down, so it carries
+ * everything it needs: no site.css, no script, no image file. The colours are the v2 tokens.
+ */
+:root{
+  --primary-200:#afc8ec;
+  --ink-900:#0b1220; --ink-800:#17202e; --r-lg:22px;
+  --sans:'Inter','Segoe UI',Roboto,system-ui,-apple-system,sans-serif;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box; margin:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100vh; min-height:100svh; display:flex; align-items:center; justify-content:center; padding:48px 16px;
+  font:400 16px/1.6 var(--sans); color:#fff; background:var(--ink-900);
+  background-image:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(5,63,128,.45), rgba(11,18,32,0) 70%)}
+main{width:100%; max-width:560px; text-align:center}
+.logo{display:block; width:220px; height:auto; margin:0 auto 56px}
+h1{font-family:var(--serif); font-weight:400; font-size:clamp(40px, 8vw, 64px); line-height:1.05; letter-spacing:-.03em}
+.lead{margin-top:20px; font-size:18px; color:rgba(255,255,255,.8)}
+.help{margin-top:28px; color:rgba(255,255,255,.8)}
+.email{display:inline-block; padding-bottom:3px; font-weight:700; color:#fff; text-decoration:none;
+  background:linear-gradient(currentColor, currentColor) 0 100% / 100% 1.5px no-repeat}
+.email:hover{background-size:0 1.5px; background-position:100% 100%}
+.email:focus-visible{outline:2px solid var(--primary-200); outline-offset:4px; border-radius:4px}
+.urgent{margin-top:48px; padding:18px 22px; border-radius:var(--r-lg); background:var(--ink-800);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1); font-size:14px; color:rgba(255,255,255,.8)}
+.urgent a{color:#fff; font-weight:700}
+@media (min-width:720px){ .logo{width:260px} }
+</style>
+</head>
+<body>
+<main>
+  <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 300" width="1160" height="300" role="img" aria-label="SaathMera, Saath Har Kadam Par"><g transform="translate(0,14) scale(0.46)"><g fill="#1E7430"><circle cx="152" cy="68" r="68"/><path d="M300 548 C170 452 14 366 14 258 C14 182 72 146 138 146 C205 146 262 196 300 262 L300 330 C283 292 254 268 218 268 C180 268 152 296 152 338 C152 400 218 468 300 542 Z"/></g><g fill="#0860C4" transform="translate(600,0) scale(-1,1)"><circle cx="152" cy="80" r="68"/><path d="M300 548 C170 452 14 366 14 258 C14 182 72 146 138 146 C205 146 262 196 300 262 L300 330 C283 292 254 268 218 268 C180 268 152 296 152 338 C152 400 218 468 300 542 Z"/></g></g><text x="320" y="170" font-family="Poppins,Montserrat,Inter,'Segoe UI',Roboto,system-ui,sans-serif" font-size="132" font-weight="700" letter-spacing="-2.6" fill="#FFFFFF">SaathMera</text><text x="324" y="232" font-family="Poppins,Montserrat,Inter,'Segoe UI',Roboto,system-ui,sans-serif" font-size="48" font-weight="500" letter-spacing="1.9" fill="rgba(255,255,255,.75)">Saath Har Kadam Par</text></svg>
+  <h1>We will be back shortly</h1>
+  <p class="lead">SaathMera is down for a few minutes of planned maintenance. Please try again soon.</p>
+  <p class="help">Need us in the meantime? Write to <a class="email" href="mailto:support@saathmera.in">support@saathmera.in</a></p>
+  <p class="urgent">SaathMera is not an emergency service. In a medical emergency, dial <a href="tel:108">108</a> for an ambulance.</p>
+</main>
+</body>
+</html>

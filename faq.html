@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ, SaathMera</title>
+<meta name="description" content="Answers to common questions about SaathMera: the daily check-in, bookings, plans, payments, family access and privacy.">
+<link rel="icon" href="../../brand/logos/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* FAQ. A topic index, then the questions in their six groups, broken by the emergency band. Shared parts live in site.css. */
+
+.section{position:relative; padding:88px 0}
+@media (min-width:1024px){ .section{padding:112px 0} }
+.head{max-width:640px}
+.head h2{font-size:clamp(34px, 5vw, 56px)}
+.head p{margin-top:16px; font-size:var(--text-lg); color:var(--ink-600)}
+.center{text-align:center; margin:0 auto}
+
+/* ---------- page hero ---------- */
+.page-hero{position:relative; display:flex; flex-direction:column; min-height:600px; color:#fff; background:var(--ink-900)}
+.page-hero > .photo{position:absolute; inset:0; z-index:0; background:var(--ink-800)}
+.page-hero > .photo img{object-position:center 35%; filter:saturate(.7)}
+.page-hero::before{content:""; position:absolute; inset:0; z-index:1;
+  background:radial-gradient(ellipse 70% 70% at 50% 55%, rgba(11,18,32,.78), rgba(11,18,32,.55) 75%),
+             linear-gradient(180deg, rgba(11,18,32,.5), rgba(11,18,32,0) 30%, rgba(5,63,128,.4))}
+.page-hero > *:not(.photo){position:relative; z-index:2}
+.page-hero .edge{position:absolute; z-index:3}
+.page-hero-body{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding-top:20px; padding-bottom:110px}
+.page-hero h1{font-family:var(--serif); font-weight:400; font-size:clamp(44px, 7vw, 84px); line-height:1.02; letter-spacing:-.03em}
+.page-hero p{margin:22px auto 0; max-width:540px; font-size:var(--text-lg); color:rgba(255,255,255,.8)}
+.page-hero p a{color:#fff; text-underline-offset:4px}
+.jump{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:34px}
+
+/* ---------- topic index ---------- */
+.topics{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:44px}
+.topic{display:flex; flex-direction:column; gap:18px; padding:22px; border-radius:var(--r-lg); background:var(--primary-50);
+  text-decoration:none; transition:transform .24s var(--press), background .18s ease, box-shadow .18s ease}
+.topic:hover{transform:translateY(-3px); background:var(--card-inner); box-shadow:var(--lift)}
+.topic .art{width:52px; height:52px}
+.topic b{display:block; font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.15; letter-spacing:-.015em;
+  color:var(--ink-900)}
+.topic span{display:block; margin-top:4px; font-size:var(--text-sm); color:var(--ink-600)}
+@media (min-width:720px){ .topics{grid-template-columns:repeat(3,1fr)} }
+@media (min-width:1080px){ .topics{grid-template-columns:repeat(6,1fr)} .topic{min-height:190px} .topic div{margin-top:auto} }
+
+/* ---------- question groups ---------- */
+.group{display:grid; gap:22px; padding:56px 0; scroll-margin-top:24px; box-shadow:inset 0 1px 0 var(--line)}
+.group:first-child{padding-top:0; box-shadow:none}
+.group:last-child{padding-bottom:0}
+.group-head .art{width:60px; height:60px}
+.group-head h2{margin-top:18px; font-size:clamp(30px, 3.6vw, 40px)}
+.group-head p{margin-top:8px; font-size:var(--text-sm); color:var(--ink-500)}
+.qs details{box-shadow:inset 0 -1px 0 var(--line)}
+.qs details:first-child{box-shadow:inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line)}
+.qs summary{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 4px; cursor:pointer;
+  list-style:none; font-size:var(--text-lg); font-weight:600; line-height:1.4; color:var(--ink-900)}
+.qs summary::-webkit-details-marker{display:none}
+.qs summary .icon{width:22px; height:22px; color:var(--ink-500); transition:transform .24s var(--press), color .18s ease}
+.qs summary:hover .icon{color:var(--primary)}
+.qs details[open] summary .icon{transform:rotate(45deg); color:var(--primary)}
+.qs .answer{max-width:640px; padding:0 44px 26px 4px; font-size:var(--text-base); line-height:1.7; color:var(--ink-600)}
+.qs details[open] .answer{animation:rise .3s var(--press) both}
+.qs .answer a{color:var(--primary); font-weight:600; text-underline-offset:3px}
+@media (min-width:1024px){
+  .group{grid-template-columns:340px 1fr; gap:64px; padding:72px 0}
+  .group-head{position:sticky; top:32px; align-self:start}
+}
+
+/* ---------- emergency band ---------- */
+.band{position:relative; overflow:hidden; color:#fff; background:var(--ink-900); padding:120px 0 110px}
+.band > .photo{position:absolute; inset:0; background:var(--ink-800)}
+.band > .photo img{object-position:center 35%; filter:saturate(.7)}
+.band::before{content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(90deg, rgba(11,18,32,.86), rgba(11,18,32,.55) 60%, rgba(11,18,32,.35)),
+             linear-gradient(0deg, rgba(11,18,32,.6), rgba(11,18,32,0) 55%)}
+.band > .wrap{position:relative; z-index:2}
+.band .edge{z-index:3}
+.band-grid{display:grid; gap:36px; align-items:end}
+.band h2{font-size:clamp(34px, 4.6vw, 54px); color:#fff; max-width:560px}
+.band p{margin-top:18px; max-width:500px; font-size:var(--text-lg); color:rgba(255,255,255,.82)}
+.dial{display:flex; align-items:center; gap:18px; justify-self:start; padding:14px 28px 14px 14px; border-radius:var(--r-xl);
+  background:var(--card-inner); color:var(--ink-900); text-decoration:none; box-shadow:var(--lift)}
+.dial .art{width:56px; height:56px}
+.dial b{display:block; font-family:var(--serif); font-weight:500; font-size:44px; line-height:1; letter-spacing:-.02em; color:var(--danger)}
+.dial small{display:block; margin-top:4px; font-size:var(--text-sm); color:var(--ink-600)}
+@media (max-width:1023px){ .band-grid{text-align:center; justify-items:center} .band h2,.band p{margin-left:auto; margin-right:auto} .dial{justify-self:center; text-align:left} }
+@media (min-width:1024px){ .band{padding:150px 0 140px} .band-grid{grid-template-columns:1fr auto; gap:80px} }
+
+/* ---------- still asking ---------- */
+.ask{display:grid; gap:48px; align-items:center}
+.ask-photo{width:100%; aspect-ratio:16/10}
+.rows{margin-top:32px}
+.row{display:grid; grid-template-columns:52px 1fr 24px; gap:18px; align-items:center; padding:20px 0;
+  text-decoration:none; box-shadow:inset 0 1px 0 var(--line)}
+.row:last-child{box-shadow:inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line)}
+.row .art{width:52px; height:52px}
+.row b{display:block; font-size:var(--text-base); font-weight:700; color:var(--ink-900)}
+.row span{display:block; margin-top:2px; font-size:var(--text-sm); color:var(--ink-600); overflow-wrap:anywhere}
+.row .go{color:var(--ink-500); transition:transform .24s var(--press), color .18s ease}
+a.row:hover .go{color:var(--primary); transform:translateX(3px)}
+.ask .btn{margin-top:32px}
+@media (min-width:1024px){ .ask{grid-template-columns:1fr 1fr; gap:96px} .ask-photo{aspect-ratio:5/4} }
+
+/* ---------- get the app band ---------- */
+.cta{position:relative; overflow:hidden; color:#fff; background:var(--ink-900); padding:130px 0 120px; text-align:center}
+.cta > .photo{position:absolute; inset:0; background:var(--ink-800)}
+.cta > .photo img{object-position:center 40%; filter:saturate(.7)}
+.cta::before{content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(0deg, rgba(11,18,32,.85), rgba(11,18,32,.55)), linear-gradient(90deg, rgba(5,63,128,.35), rgba(5,63,128,0))}
+.cta > .wrap{position:relative; z-index:2}
+.cta .edge{z-index:3}
+.cta h2{font-size:clamp(34px, 5vw, 58px); color:#fff}
+.cta p{max-width:520px; margin:18px auto 0; font-size:var(--text-lg); color:rgba(255,255,255,.8)}
+.cta .play-badge{display:inline-block; margin-top:32px}
+.cta .play-badge img{height:60px; width:auto}
+</style>
+</head>
+<body>
+
+<!-- icons:start -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- SaathMera web v2 icon set. Run sync-icons.py after editing: it copies this file into every page.
+
+       Two families:
+       ui-*  small interface glyphs drawn in currentColor, used inside buttons and links (24 grid).
+       a-*   our own duotone illustrations for content, 64 grid: a primary-100 fill under a
+             primary outline, 2.6 stroke, round caps. Shown at 48 to 64px with no disc behind. -->
+
+  <!-- ui glyphs -->
+  <symbol id="ui-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-up-right" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="ui-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="ui-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 11v5M12 8h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+
+  <!-- care at home -->
+  <symbol id="a-doctor-visit" viewBox="0 0 64 64"><path d="M10 30L32 12l22 18v22a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" style="fill:var(--primary-100)"/><path d="M6 32L32 10l26 22M12 28v24a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4V28" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 30v16M24 38h16" fill="none" style="stroke:var(--primary)" stroke-width="3.2" stroke-linecap="round"/></symbol>
+  <symbol id="a-nurse-visit" viewBox="0 0 64 64"><rect x="14" y="24" width="30" height="14" rx="4" transform="rotate(-45 29 31)" style="fill:var(--primary-100)"/><path d="M44 12l8 8M48 16l-6 6M40 18L18 40a3 3 0 0 0 0 4l2 2a3 3 0 0 0 4 0l22-22M14 50l5-5M26 30l4 4M32 24l4 4" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="46" r="7" style="fill:var(--primary-100)"/><path d="M48 42v8M44 46h8" fill="none" style="stroke:var(--primary)" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="a-video-call" viewBox="0 0 64 64"><rect x="16" y="8" width="26" height="48" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M26 49h6" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><circle cx="29" cy="25" r="5" fill="none" style="stroke:var(--primary)" stroke-width="2.4"/><path d="M21 38a8 8 0 0 1 16 0" fill="none" style="stroke:var(--primary)" stroke-width="2.4" stroke-linecap="round"/><path d="M46 22l8-4v14l-8-4" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+  <symbol id="a-blood-test" viewBox="0 0 64 64"><path d="M22 30h14v18a7 7 0 0 1-14 0z" style="fill:var(--primary-100)"/><path d="M19 10h20M22 10v38a7 7 0 0 0 14 0V10M22 30h14" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 26s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+
+  <!-- people -->
+  <symbol id="a-parent" viewBox="0 0 64 64"><circle cx="26" cy="15" r="8" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M14 58V40a12 12 0 0 1 24 0v18" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M40 34h5a3 3 0 0 1 3 3v21" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 30v10" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-family" viewBox="0 0 64 64"><circle cx="21" cy="15" r="7.5" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><circle cx="44" cy="22" r="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M9 56V38a12 12 0 0 1 24 0M34 56V42a10 10 0 0 1 20 0v14" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 46c-3-3.4-8 0-5 4l5 5 5-5c3-4-2-7.4-5-4z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+  <symbol id="a-approval" viewBox="0 0 64 64"><path d="M32 6l22 8v16c0 13-9.5 23-22 28C19.5 53 10 43 10 30V14z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M22 31l7 7 13-14" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-link" viewBox="0 0 64 64"><rect x="6" y="22" width="30" height="20" rx="10" style="fill:var(--primary-100)"/><path d="M27 22h-11a10 10 0 0 0 0 20h11M37 42h11a10 10 0 0 0 0-20H37M22 32h20" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/></symbol>
+
+  <!-- the daily check-in -->
+  <symbol id="a-checkin" viewBox="0 0 64 64"><path d="M10 14a6 6 0 0 1 6-6h32a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H26l-12 10V44h2a6 6 0 0 1-6-6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 28a10 10 0 0 0 16 0M25 20h.01M39 20h.01" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="a-alert" viewBox="0 0 64 64"><path d="M32 8a16 16 0 0 1 16 16v12l5 8H11l5-8V24A16 16 0 0 1 32 8z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M26 50a6 6 0 0 0 12 0" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M32 20v10M32 36h.01" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="a-question" viewBox="0 0 64 64"><circle cx="32" cy="30" r="22" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M24 24a8 8 0 0 1 15.5 2.6C39.5 32 32 33 32 38M32 45h.01" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-emergency" viewBox="0 0 64 64"><path d="M14 8h9l4 12-6 4a28 28 0 0 0 15 15l4-6 12 4v9a6 6 0 0 1-6 6C26 52 12 38 8 14a6 6 0 0 1 6-6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M46 8v14M39 15h14" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+
+  <!-- plans and payments -->
+  <symbol id="a-comes-back" viewBox="0 0 64 64"><circle cx="32" cy="32" r="13" style="fill:var(--primary-100)"/><path d="M52 32A20 20 0 1 1 46 18" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M47 8v11H36" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 26v12M26 32h12" fill="none" style="stroke:var(--primary)" stroke-width="2.8" stroke-linecap="round"/></symbol>
+  <symbol id="a-plan-ends" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M8 24h48M20 6v12M44 6v12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M18 34h6M29 34h6M40 34h6M18 44h6M29 44h6" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><circle cx="43" cy="44" r="5" style="fill:var(--card-inner);stroke:var(--primary)" stroke-width="2.4"/></symbol>
+  <symbol id="a-upi" viewBox="0 0 64 64"><rect x="16" y="6" width="32" height="52" rx="7" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M28 51h8" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M25 18h14M25 24h14M29 18c7 0 7 12 0 12h-4l11 12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-family-pays" viewBox="0 0 64 64"><circle cx="40" cy="18" r="11" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M36 13h8M36 17h8M38 13c4 0 4 8 0 8h-2l6 6" fill="none" style="stroke:var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42h9l9-4h12a4 4 0 0 1 0 8H26M27 46h13l11-9a4 4 0 0 1 5.6 5.6L44 56H6" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-no-autodebit" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M6 26h52M14 40h12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><circle cx="46" cy="40" r="9" style="fill:var(--card-inner);stroke:var(--primary)" stroke-width="2.4"/><path d="M42.5 36.5l7 7" fill="none" style="stroke:var(--primary)" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="a-wellness" viewBox="0 0 64 64"><path d="M32 54C14 42 8 32 8 23a12 12 0 0 1 24-3 12 12 0 0 1 24 3c0 9-6 19-24 31z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M14 30h10l4-7 6 14 4-7h12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- getting started -->
+  <symbol id="a-download" viewBox="0 0 64 64"><rect x="16" y="6" width="32" height="52" rx="7" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M28 51h8" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M32 16v20M24 29l8 8 8-8" fill="none" style="stroke:var(--primary)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-book" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M8 24h48M20 6v12M44 6v12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M23 40l6 6 12-12" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-confirmed" viewBox="0 0 64 64"><path d="M32 6a16 16 0 0 1 16 16v11l5 8H11l5-8V22A16 16 0 0 1 32 6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M26 47a6 6 0 0 0 12 0" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M25 24l5 5 9-9" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- trust and privacy -->
+  <symbol id="a-lock" viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M20 28v-8a12 12 0 0 1 24 0v8" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M32 39v8" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="a-delete" viewBox="0 0 64 64"><path d="M16 18h32l-3 36a4 4 0 0 1-4 4H23a4 4 0 0 1-4-4z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M10 18h44M25 18v-6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v6M27 28v20M37 28v20" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-document" viewBox="0 0 64 64"><path d="M14 6h26l12 12v36a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M40 6v12h12M20 30h24M20 39h24M20 48h14" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- getting in touch -->
+  <symbol id="a-phone" viewBox="0 0 64 64"><path d="M14 8h9l4 12-6 4a28 28 0 0 0 15 15l4-6 12 4v9a6 6 0 0 1-6 6C26 52 12 38 8 14a6 6 0 0 1 6-6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+  <symbol id="a-mail" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="38" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M8 18l24 18 24-18" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-place" viewBox="0 0 64 64"><path d="M32 58S12 40 12 24a20 20 0 0 1 40 0c0 16-20 34-20 34z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><circle cx="32" cy="24" r="7" style="fill:var(--card-inner);stroke:var(--primary)" stroke-width="2.6"/></symbol>
+  <symbol id="a-hours" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M32 18v14l9 6" fill="none" style="stroke:var(--primary)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <symbol id="edge" viewBox="0 0 1440 22" preserveAspectRatio="none"><path d="M0 22V12l38 3 41-6 44 4 36-5 47 7 39-4 52 3 33-6 46 5 41-3 38 6 49-5 35 2 44-4 40 6 37-3 51 4 34-6 45 3 39 5 48-6 36 3 42-2 37 5 46-6 40 4 35-3 49 5 38-4 43 2 41-5 36 6 47-3 39 2 44-5 34 4 45-2V22z" fill="currentColor"/></symbol>
+</svg>
+<!-- icons:end -->
+
+<header class="page-hero">
+  <div class="photo"><img src="https://images.unsplash.com/photo-1593100126453-19b562a800c1?w=2000&q=75&auto=format&fit=crop" alt="" onerror="this.remove()"></div>
+
+  <div class="wrap bar">
+    <nav class="links" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a class="logo" href="home-2.html" aria-label="SaathMera, home"><img src="../../brand/logos/horizontal-on-dark.svg" alt="SaathMera, Saath Har Kadam Par" width="1160" height="300"></a>
+    <div class="end">
+      <nav class="links" aria-label="More">
+        <a href="faq.html" aria-current="page">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-outline-light" href="#get-app">Get the app <svg class="icon"><use href="#ui-arrow"/></svg></a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg class="icon"><use href="#ui-menu"/></svg></button>
+  </div>
+  <div class="wrap">
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-dark" href="#get-app">Get the app <svg class="icon"><use href="#ui-arrow"/></svg></a>
+    </nav>
+  </div>
+
+  <div class="wrap page-hero-body">
+    <h1>Questions, answered plainly</h1>
+    <p>Cannot find what you are looking for? Get in touch and a member of the team will help.</p>
+    <div class="jump">
+      <a class="btn btn-primary" href="#topics">Browse the questions <svg class="icon"><use href="#ui-down"/></svg></a>
+      <a class="btn btn-tertiary" href="contact.html"><span>Get in touch</span><svg class="icon"><use href="#ui-arrow"/></svg></a>
+    </div>
+  </div>
+
+  <svg class="edge edge-bottom" style="color:var(--card)" aria-hidden="true"><use href="#edge" fill="currentColor"/></svg>
+</header>
+
+<main>
+  <section class="section" id="topics">
+    <div class="wrap">
+      <div class="head center reveal">
+        <h2 class="display">Pick a topic</h2>
+        <p>The daily check-in, bookings, plans, payments, family access and privacy.</p>
+      </div>
+      <nav class="topics" aria-label="Topics">
+        <a class="topic reveal" href="#getting-started"><svg class="art" aria-hidden="true"><use href="#a-download"/></svg><div><b>Getting started</b><span>4 questions</span></div></a>
+        <a class="topic reveal" href="#daily-check-in"><svg class="art" aria-hidden="true"><use href="#a-checkin"/></svg><div><b>Daily check-in</b><span>3 questions</span></div></a>
+        <a class="topic reveal" href="#bookings"><svg class="art" aria-hidden="true"><use href="#a-book"/></svg><div><b>Bookings and visits</b><span>4 questions</span></div></a>
+        <a class="topic reveal" href="#payments"><svg class="art" aria-hidden="true"><use href="#a-upi"/></svg><div><b>Plans and payments</b><span>4 questions</span></div></a>
+        <a class="topic reveal" href="#family"><svg class="art" aria-hidden="true"><use href="#a-family"/></svg><div><b>Family access</b><span>3 questions</span></div></a>
+        <a class="topic reveal" href="#privacy"><svg class="art" aria-hidden="true"><use href="#a-lock"/></svg><div><b>Privacy and safety</b><span>4 questions</span></div></a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="group" id="getting-started">
+        <div class="group-head reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-download"/></svg>
+          <h2 class="display">Getting started</h2>
+          <p>4 questions</p>
+        </div>
+        <div class="qs reveal">
+          <details>
+            <summary>Who is SaathMera for?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>SaathMera is for elderly parents who want care at home without fuss, and for the sons, daughters and caregivers who look after them, whether they live nearby or in another city.</p></div>
+          </details>
+          <details>
+            <summary>Do parents and family members need different apps?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>No. There is one SaathMera app. When you sign up you choose whether you are the parent or a family member, and the app shows you the right screens.</p></div>
+          </details>
+          <details>
+            <summary>Is SaathMera available on iPhone?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Not yet. SaathMera is available for Android phones through Google Play.</p></div>
+          </details>
+          <details>
+            <summary>Which cities do you serve?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Home visits depend on our doctors, nurses and laboratory partners in your area. We currently serve Chandigarh, Mohali, Panchkula and Zirakpur.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="group" id="daily-check-in">
+        <div class="group-head reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-checkin"/></svg>
+          <h2 class="display">Daily check-in</h2>
+          <p>3 questions</p>
+        </div>
+        <div class="qs reveal">
+          <details>
+            <summary>What is the daily check-in?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Every morning SaathMera asks "How are you feeling today?". The parent taps Good or Not Good, and then says whether they need any help. It takes a couple of seconds.</p></div>
+          </details>
+          <details>
+            <summary>What happens when a parent says Not Good?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>If they say Not Good or ask for help, their linked family member gets an alert straight away. The parent can also say what kind of help they need and send a short message.</p></div>
+          </details>
+          <details>
+            <summary>What if a check-in is missed?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Nothing happens to the account. The missed day shows up in the check-in history the family and the SaathMera team can see, so someone can call and make sure all is well.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="group" id="bookings">
+        <div class="group-head reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-book"/></svg>
+          <h2 class="display">Bookings and visits</h2>
+          <p>4 questions</p>
+        </div>
+        <div class="qs reveal">
+          <details>
+            <summary>How do I book a doctor visit?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Open Care in the app, choose Doctor home visit, and pick a date and time. Our team calls the doctor and confirms your slot. You get a notification as soon as it is confirmed.</p></div>
+          </details>
+          <details>
+            <summary>Why is my booking a request and not instantly confirmed?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Every visit is arranged by a person on our team, who checks with the doctor, nurse or laboratory before confirming. If your chosen time is not possible, we will offer another one.</p></div>
+          </details>
+          <details>
+            <summary>How does the doctor call on WhatsApp work?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>You book the consultation in SaathMera. At the confirmed time, the doctor calls you on WhatsApp for a video consultation.</p></div>
+          </details>
+          <details>
+            <summary>Are blood test charges included?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>The booking and home collection are arranged by SaathMera. The test charges themselves are billed separately by our laboratory partner.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <svg class="edge edge-top" style="color:var(--card)" aria-hidden="true"><use href="#edge" fill="currentColor"/></svg>
+    <div class="photo"><img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=2000&q=75&auto=format&fit=crop" alt="" onerror="this.remove()"></div>
+    <div class="wrap band-grid">
+      <div class="reveal">
+        <h2 class="display">SaathMera is not an emergency service</h2>
+        <p>The emergency button places an ordinary phone call to the contact you choose. SaathMera does not dispatch ambulances or track location.</p>
+      </div>
+      <a class="dial reveal" href="tel:108">
+        <svg class="art" aria-hidden="true"><use href="#a-emergency"/></svg>
+        <span><b>108</b><small>Dial for an ambulance</small></span>
+      </a>
+    </div>
+    <svg class="edge edge-bottom" style="color:var(--card)" aria-hidden="true"><use href="#edge" fill="currentColor"/></svg>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="group" id="payments">
+        <div class="group-head reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-upi"/></svg>
+          <h2 class="display">Plans and payments</h2>
+          <p>4 questions</p>
+        </div>
+        <div class="qs reveal">
+          <details>
+            <summary>How do I pay?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Payments are made in the app through Razorpay, including UPI.</p></div>
+          </details>
+          <details>
+            <summary>Does my plan renew automatically?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>No. Every payment is a one-time payment. We remind you before your plan ends, and you renew only if you want to.</p></div>
+          </details>
+          <details>
+            <summary>Are visits on a 3, 6 or 12 month plan per month?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>No. On longer plans the visits and consultations are a total for the whole period. For example, the 12 Months Premium plan includes 12 doctor home visits to use at any point during the year. See <a href="pricing.html">Pricing</a> for every plan.</p></div>
+          </details>
+          <details>
+            <summary>How do refunds work?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>If our team cannot arrange your visit, or you cancel before it happens, any payment is refunded through Razorpay within 3 to 5 working days. If the visit was covered by your plan, it goes back into your balance.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="group" id="family">
+        <div class="group-head reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-family"/></svg>
+          <h2 class="display">Family access</h2>
+          <p>3 questions</p>
+        </div>
+        <div class="qs reveal">
+          <details>
+            <summary>How do I link a family member?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>The parent goes to Account, then Family access, and shares their link code. The family member enters it in their own SaathMera app, and the parent approves the request.</p></div>
+          </details>
+          <details>
+            <summary>Can a family member see everything?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>Only what the parent allows. Seeing check-ins, booking visits and paying are separate permissions, and nothing is visible until the parent approves the link.</p></div>
+          </details>
+          <details>
+            <summary>How do I remove a family member?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>The parent opens Family access, chooses the family member and removes their access. It ends straight away.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="group" id="privacy">
+        <div class="group-head reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-lock"/></svg>
+          <h2 class="display">Privacy and safety</h2>
+          <p>4 questions</p>
+        </div>
+        <div class="qs reveal">
+          <details>
+            <summary>Can SaathMera send an ambulance?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>No. The Emergency button places a normal phone call to the family member or contact you have chosen. SaathMera does not dispatch ambulances or track location. For an ambulance, dial 108.</p></div>
+          </details>
+          <details>
+            <summary>Is the wellness update medical advice?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>No. The Daily Health and Wellness Update is general information about staying well. For advice about your own health, speak to a doctor.</p></div>
+          </details>
+          <details>
+            <summary>Who can see my health information?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>You, any family member you have approved, and authorised members of the SaathMera team. It is never sold or used for advertising. Read the <a href="privacy.html">privacy policy</a> for the details.</p></div>
+          </details>
+          <details>
+            <summary>How do I delete my account?<svg class="icon"><use href="#ui-plus"/></svg></summary>
+            <div class="answer"><p>In the app, open Account and choose Delete my account. See <a href="delete-account.html">Delete your account</a> for what is removed and what we have to keep.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap ask">
+      <div class="ask-photo rough reveal">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1000&q=75&auto=format&fit=crop" alt="A doctor speaking with an older patient" onerror="this.remove()"></div>
+      </div>
+      <div class="reveal">
+        <div class="head">
+          <h2 class="display">Still have a question?</h2>
+          <p>Call or write to us and the SaathMera team will help.</p>
+        </div>
+        <div class="rows">
+          <a class="row" href="tel:+919876543210">
+            <svg class="art" aria-hidden="true"><use href="#a-phone"/></svg>
+            <div><b>Call us</b><span>+91 98765 43210</span></div>
+            <svg class="icon go"><use href="#ui-arrow"/></svg>
+          </a>
+          <a class="row" href="mailto:support@saathmera.in">
+            <svg class="art" aria-hidden="true"><use href="#a-mail"/></svg>
+            <div><b>Email us</b><span>support@saathmera.in</span></div>
+            <svg class="icon go"><use href="#ui-arrow"/></svg>
+          </a>
+          <div class="row">
+            <svg class="art" aria-hidden="true"><use href="#a-hours"/></svg>
+            <div><b>Hours</b><span>Every day, 9:00 AM to 8:00 PM</span></div>
+          </div>
+        </div>
+        <a class="btn btn-outline" href="contact.html">Contact the team <svg class="icon"><use href="#ui-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="get-app">
+    <svg class="edge edge-top" style="color:var(--card)" aria-hidden="true"><use href="#edge" fill="currentColor"/></svg>
+    <div class="photo"><img src="https://images.unsplash.com/photo-1559234938-b60fff04894d?w=2000&q=75&auto=format&fit=crop" alt="" onerror="this.remove()"></div>
+    <div class="wrap reveal">
+      <h2 class="display">Bring SaathMera home</h2>
+      <p>Free to download on Android. Choose a plan, or pay per visit, whenever you need care.</p>
+      <a class="play-badge" href="#" aria-label="Get it on Google Play"><img src="../../../apps/web/public/brand/google-play-badge.png" alt="Get it on Google Play" height="60"></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="../../brand/logos/horizontal-on-dark.svg" alt="SaathMera, Saath Har Kadam Par" width="1160" height="300">
+      <p>Care at home for elderly parents, and a daily check-in the whole family can see.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col"><h3>Product</h3><ul><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="#get-app">Get the app</a></li></ul></div>
+      <div class="foot-col"><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h3>Legal</h3><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms of use</a></li><li><a href="delete-account.html">Delete your account</a></li></ul></div>
+    </div>
+    <div class="foot-cta">
+      <h3>Care at home, one app for the whole family.</h3>
+      <dl>
+        <div><dt>Email</dt><dd><a href="mailto:support@saathmera.in">support@saathmera.in</a></dd></div>
+        <div><dt>Phone, every day 9:00 AM to 8:00 PM</dt><dd><a href="tel:+919876543210">+91 98765 43210</a></dd></div>
+        <div><dt>Office</dt><dd>SCO 112, Sector 34-A, Chandigarh 160022</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span>SaathMera</span><img src="../../brand/logos/mark-white.svg" alt=""><span>Saath Har Kadam Par</span><img src="../../brand/logos/mark-white.svg" alt=""></div>
+    <div class="marquee-track"><span>SaathMera</span><img src="../../brand/logos/mark-white.svg" alt=""><span>Saath Har Kadam Par</span><img src="../../brand/logos/mark-white.svg" alt=""></div>
+  </div>
+
+  <div class="wrap">
+    <div class="legal">
+      <span>© 2026 SaathMera Private Limited. In a medical emergency, dial <strong>108</strong>.</span>
+      <nav aria-label="Legal"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a><a href="delete-account.html">Delete your account</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const button = document.querySelector('.menu-btn');
+  const menu = document.getElementById('mobile-nav');
+  const setOpen = (open) => {
+    menu.classList.toggle('open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  button.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { items.forEach((item) => item.classList.add('in')); return; }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  items.forEach((item) => observer.observe(item));
+})();
+</script>
+</body>
+</html>

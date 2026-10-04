@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About, SaathMera</title>
+<meta name="description" content="Why SaathMera exists, what it stands for, and what it does and does not do.">
+<link rel="icon" href="../../brand/logos/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* About. Why we built it, what we stand for, and what SaathMera is not. Shared parts live in site.css. */
+
+.section{position:relative; padding:88px 0}
+@media (min-width:1024px){ .section{padding:112px 0} }
+.head{max-width:640px}
+.head h2{font-size:clamp(34px, 5vw, 56px)}
+.head p{margin-top:16px; font-size:var(--text-lg); color:var(--ink-600)}
+.center{text-align:center; margin:0 auto}
+h1,h2{text-wrap:balance}
+
+/* ---------- page hero ---------- */
+.page-hero{position:relative; display:flex; flex-direction:column; min-height:600px; color:#fff; background:var(--ink-900)}
+.page-hero > .photo{position:absolute; inset:0; z-index:0; background:var(--ink-800)}
+.page-hero > .photo img{object-position:center 35%; filter:saturate(.7)}
+.page-hero::before{content:""; position:absolute; inset:0; z-index:1;
+  background:radial-gradient(ellipse 70% 70% at 50% 55%, rgba(11,18,32,.78), rgba(11,18,32,.55) 75%),
+             linear-gradient(180deg, rgba(11,18,32,.5), rgba(11,18,32,0) 30%, rgba(5,63,128,.4))}
+.page-hero > *:not(.photo){position:relative; z-index:2}
+.page-hero .edge{position:absolute; z-index:3}
+.page-hero-body{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding-top:20px; padding-bottom:110px}
+.page-hero h1{font-family:var(--serif); font-weight:400; font-size:clamp(44px, 7vw, 84px); line-height:1.02; letter-spacing:-.03em}
+.page-hero p{margin:22px auto 0; max-width:580px; font-size:var(--text-lg); color:rgba(255,255,255,.8)}
+.jump{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:34px}
+
+/* ---------- why we built it ---------- */
+.why{display:grid; gap:48px; align-items:center}
+.why-photo{aspect-ratio:4/5; max-width:460px}
+.why .head p + p{font-size:var(--text-base)}
+.why-pair{display:grid; gap:0; margin-top:32px; max-width:640px}
+.why-pair div{display:grid; grid-template-columns:56px 1fr; gap:18px; align-items:start; padding:22px 0;
+  box-shadow:inset 0 1px 0 var(--line)}
+.why-pair div:last-child{box-shadow:inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line)}
+.why-pair b{display:block; font-size:var(--text-base); font-weight:700; color:var(--ink-900)}
+.why-pair span{display:block; margin-top:2px; font-size:var(--text-sm); color:var(--ink-600)}
+@media (min-width:1024px){ .why{grid-template-columns:.85fr 1.15fr; gap:80px} }
+
+/* ---------- what we stand for ---------- */
+.promises{display:grid; gap:14px; margin-top:44px}
+.promise{padding:26px; border-radius:var(--r-lg); background:var(--primary-50)}
+.promise .art{width:60px; height:60px}
+.promise h3{margin-top:22px; font-family:var(--serif); font-weight:500; font-size:24px; line-height:1.15; letter-spacing:-.015em;
+  color:var(--ink-900)}
+.promise p{margin-top:10px; font-size:var(--text-sm); color:var(--ink-600); line-height:1.65}
+@media (min-width:720px){ .promises{grid-template-columns:1fr 1fr} }
+@media (min-width:1080px){ .promises{grid-template-columns:repeat(4,1fr)} }
+
+/* ---------- what saathmera is not ---------- */
+.limits .head{margin:0 auto; text-align:center}
+.limit-grid{display:grid; column-gap:56px; margin-top:44px}
+.limit{display:grid; grid-template-columns:56px 1fr; gap:18px; align-items:start; padding:24px 0;
+  box-shadow:inset 0 1px 0 var(--line)}
+.limit-grid .limit:nth-last-child(-n+1){box-shadow:inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line)}
+.limit h3{font-family:var(--serif); font-weight:500; font-size:24px; letter-spacing:-.015em; color:var(--ink-900)}
+.limit p{margin-top:6px; font-size:var(--text-sm); color:var(--ink-600)}
+.limit .sos{font-weight:700; color:var(--danger)}
+@media (min-width:900px){
+  .limit-grid{grid-template-columns:1fr 1fr}
+  .limit-grid .limit:nth-last-child(-n+2){box-shadow:inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line)}
+}
+
+/* ---------- get the app band ---------- */
+.cta{position:relative; overflow:hidden; color:#fff; background:var(--ink-900); padding:130px 0 120px; text-align:center}
+.cta > .photo{position:absolute; inset:0; background:var(--ink-800)}
+.cta > .photo img{object-position:center 40%; filter:saturate(.7)}
+.cta::before{content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(0deg, rgba(11,18,32,.85), rgba(11,18,32,.55)), linear-gradient(90deg, rgba(5,63,128,.35), rgba(5,63,128,0))}
+.cta > .wrap{position:relative; z-index:2}
+.cta .edge{z-index:3}
+.cta h2{font-size:clamp(34px, 5vw, 58px); color:#fff}
+.cta p{max-width:520px; margin:18px auto 0; font-size:var(--text-lg); color:rgba(255,255,255,.8)}
+.cta .play-badge{display:inline-block; margin-top:32px}
+.cta .play-badge img{height:60px; width:auto}
+</style>
+</head>
+<body>
+
+<!-- icons:start -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- SaathMera web v2 icon set. Run sync-icons.py after editing: it copies this file into every page.
+
+       Two families:
+       ui-*  small interface glyphs drawn in currentColor, used inside buttons and links (24 grid).
+       a-*   our own duotone illustrations for content, 64 grid: a primary-100 fill under a
+             primary outline, 2.6 stroke, round caps. Shown at 48 to 64px with no disc behind. -->
+
+  <!-- ui glyphs -->
+  <symbol id="ui-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-up-right" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="ui-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="ui-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ui-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 11v5M12 8h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+
+  <!-- care at home -->
+  <symbol id="a-doctor-visit" viewBox="0 0 64 64"><path d="M10 30L32 12l22 18v22a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" style="fill:var(--primary-100)"/><path d="M6 32L32 10l26 22M12 28v24a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4V28" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 30v16M24 38h16" fill="none" style="stroke:var(--primary)" stroke-width="3.2" stroke-linecap="round"/></symbol>
+  <symbol id="a-nurse-visit" viewBox="0 0 64 64"><rect x="14" y="24" width="30" height="14" rx="4" transform="rotate(-45 29 31)" style="fill:var(--primary-100)"/><path d="M44 12l8 8M48 16l-6 6M40 18L18 40a3 3 0 0 0 0 4l2 2a3 3 0 0 0 4 0l22-22M14 50l5-5M26 30l4 4M32 24l4 4" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="46" r="7" style="fill:var(--primary-100)"/><path d="M48 42v8M44 46h8" fill="none" style="stroke:var(--primary)" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="a-video-call" viewBox="0 0 64 64"><rect x="16" y="8" width="26" height="48" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M26 49h6" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><circle cx="29" cy="25" r="5" fill="none" style="stroke:var(--primary)" stroke-width="2.4"/><path d="M21 38a8 8 0 0 1 16 0" fill="none" style="stroke:var(--primary)" stroke-width="2.4" stroke-linecap="round"/><path d="M46 22l8-4v14l-8-4" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+  <symbol id="a-blood-test" viewBox="0 0 64 64"><path d="M22 30h14v18a7 7 0 0 1-14 0z" style="fill:var(--primary-100)"/><path d="M19 10h20M22 10v38a7 7 0 0 0 14 0V10M22 30h14" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 26s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+
+  <!-- people -->
+  <symbol id="a-parent" viewBox="0 0 64 64"><circle cx="26" cy="15" r="8" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M14 58V40a12 12 0 0 1 24 0v18" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M40 34h5a3 3 0 0 1 3 3v21" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 30v10" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-family" viewBox="0 0 64 64"><circle cx="21" cy="15" r="7.5" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><circle cx="44" cy="22" r="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M9 56V38a12 12 0 0 1 24 0M34 56V42a10 10 0 0 1 20 0v14" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 46c-3-3.4-8 0-5 4l5 5 5-5c3-4-2-7.4-5-4z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+  <symbol id="a-approval" viewBox="0 0 64 64"><path d="M32 6l22 8v16c0 13-9.5 23-22 28C19.5 53 10 43 10 30V14z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M22 31l7 7 13-14" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-link" viewBox="0 0 64 64"><rect x="6" y="22" width="30" height="20" rx="10" style="fill:var(--primary-100)"/><path d="M27 22h-11a10 10 0 0 0 0 20h11M37 42h11a10 10 0 0 0 0-20H37M22 32h20" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/></symbol>
+
+  <!-- the daily check-in -->
+  <symbol id="a-checkin" viewBox="0 0 64 64"><path d="M10 14a6 6 0 0 1 6-6h32a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H26l-12 10V44h2a6 6 0 0 1-6-6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 28a10 10 0 0 0 16 0M25 20h.01M39 20h.01" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="a-alert" viewBox="0 0 64 64"><path d="M32 8a16 16 0 0 1 16 16v12l5 8H11l5-8V24A16 16 0 0 1 32 8z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M26 50a6 6 0 0 0 12 0" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M32 20v10M32 36h.01" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="a-question" viewBox="0 0 64 64"><circle cx="32" cy="30" r="22" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M24 24a8 8 0 0 1 15.5 2.6C39.5 32 32 33 32 38M32 45h.01" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-emergency" viewBox="0 0 64 64"><path d="M14 8h9l4 12-6 4a28 28 0 0 0 15 15l4-6 12 4v9a6 6 0 0 1-6 6C26 52 12 38 8 14a6 6 0 0 1 6-6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M46 8v14M39 15h14" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+
+  <!-- plans and payments -->
+  <symbol id="a-comes-back" viewBox="0 0 64 64"><circle cx="32" cy="32" r="13" style="fill:var(--primary-100)"/><path d="M52 32A20 20 0 1 1 46 18" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M47 8v11H36" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 26v12M26 32h12" fill="none" style="stroke:var(--primary)" stroke-width="2.8" stroke-linecap="round"/></symbol>
+  <symbol id="a-plan-ends" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M8 24h48M20 6v12M44 6v12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M18 34h6M29 34h6M40 34h6M18 44h6M29 44h6" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><circle cx="43" cy="44" r="5" style="fill:var(--card-inner);stroke:var(--primary)" stroke-width="2.4"/></symbol>
+  <symbol id="a-upi" viewBox="0 0 64 64"><rect x="16" y="6" width="32" height="52" rx="7" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M28 51h8" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M25 18h14M25 24h14M29 18c7 0 7 12 0 12h-4l11 12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-family-pays" viewBox="0 0 64 64"><circle cx="40" cy="18" r="11" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M36 13h8M36 17h8M38 13c4 0 4 8 0 8h-2l6 6" fill="none" style="stroke:var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42h9l9-4h12a4 4 0 0 1 0 8H26M27 46h13l11-9a4 4 0 0 1 5.6 5.6L44 56H6" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-no-autodebit" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M6 26h52M14 40h12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><circle cx="46" cy="40" r="9" style="fill:var(--card-inner);stroke:var(--primary)" stroke-width="2.4"/><path d="M42.5 36.5l7 7" fill="none" style="stroke:var(--primary)" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="a-wellness" viewBox="0 0 64 64"><path d="M32 54C14 42 8 32 8 23a12 12 0 0 1 24-3 12 12 0 0 1 24 3c0 9-6 19-24 31z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M14 30h10l4-7 6 14 4-7h12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- getting started -->
+  <symbol id="a-download" viewBox="0 0 64 64"><rect x="16" y="6" width="32" height="52" rx="7" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M28 51h8" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M32 16v20M24 29l8 8 8-8" fill="none" style="stroke:var(--primary)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-book" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M8 24h48M20 6v12M44 6v12" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M23 40l6 6 12-12" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-confirmed" viewBox="0 0 64 64"><path d="M32 6a16 16 0 0 1 16 16v11l5 8H11l5-8V22A16 16 0 0 1 32 6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M26 47a6 6 0 0 0 12 0" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M25 24l5 5 9-9" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- trust and privacy -->
+  <symbol id="a-lock" viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M20 28v-8a12 12 0 0 1 24 0v8" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/><path d="M32 39v8" fill="none" style="stroke:var(--primary)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="a-delete" viewBox="0 0 64 64"><path d="M16 18h32l-3 36a4 4 0 0 1-4 4H23a4 4 0 0 1-4-4z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M10 18h44M25 18v-6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v6M27 28v20M37 28v20" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-document" viewBox="0 0 64 64"><path d="M14 6h26l12 12v36a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><path d="M40 6v12h12M20 30h24M20 39h24M20 48h14" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- getting in touch -->
+  <symbol id="a-phone" viewBox="0 0 64 64"><path d="M14 8h9l4 12-6 4a28 28 0 0 0 15 15l4-6 12 4v9a6 6 0 0 1-6 6C26 52 12 38 8 14a6 6 0 0 1 6-6z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+  <symbol id="a-mail" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="38" rx="6" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M8 18l24 18 24-18" fill="none" style="stroke:var(--primary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-place" viewBox="0 0 64 64"><path d="M32 58S12 40 12 24a20 20 0 0 1 40 0c0 16-20 34-20 34z" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6" stroke-linejoin="round"/><circle cx="32" cy="24" r="7" style="fill:var(--card-inner);stroke:var(--primary)" stroke-width="2.6"/></symbol>
+  <symbol id="a-hours" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" style="fill:var(--primary-100);stroke:var(--primary)" stroke-width="2.6"/><path d="M32 18v14l9 6" fill="none" style="stroke:var(--primary)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <symbol id="edge" viewBox="0 0 1440 22" preserveAspectRatio="none"><path d="M0 22V12l38 3 41-6 44 4 36-5 47 7 39-4 52 3 33-6 46 5 41-3 38 6 49-5 35 2 44-4 40 6 37-3 51 4 34-6 45 3 39 5 48-6 36 3 42-2 37 5 46-6 40 4 35-3 49 5 38-4 43 2 41-5 36 6 47-3 39 2 44-5 34 4 45-2V22z" fill="currentColor"/></symbol>
+</svg>
+<!-- icons:end -->
+
+<header class="page-hero">
+  <div class="photo"><img src="https://images.unsplash.com/photo-1593100126453-19b562a800c1?w=2000&q=75&auto=format&fit=crop" alt="" onerror="this.remove()"></div>
+
+  <div class="wrap bar">
+    <nav class="links" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a class="logo" href="home-2.html" aria-label="SaathMera, home"><img src="../../brand/logos/horizontal-on-dark.svg" alt="SaathMera, Saath Har Kadam Par" width="1160" height="300"></a>
+    <div class="end">
+      <nav class="links" aria-label="More">
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-outline-light" href="#get-app">Get the app <svg class="icon"><use href="#ui-arrow"/></svg></a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg class="icon"><use href="#ui-menu"/></svg></button>
+  </div>
+  <div class="wrap">
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-dark" href="#get-app">Get the app <svg class="icon"><use href="#ui-arrow"/></svg></a>
+    </nav>
+  </div>
+
+  <div class="wrap page-hero-body">
+    <h1>Saath mera.<br>With me, by my side.</h1>
+    <p>Many parents grow older in one city while their children build lives in another. SaathMera keeps them close: care at their door when they need it, and a simple daily signal that everything is alright.</p>
+    <div class="jump">
+      <a class="btn btn-primary" href="#why">Why we built it <svg class="icon"><use href="#ui-down"/></svg></a>
+      <a class="btn btn-tertiary" href="#limits"><span>What SaathMera is not</span><svg class="icon"><use href="#ui-arrow"/></svg></a>
+    </div>
+  </div>
+
+  <svg class="edge edge-bottom" style="color:var(--card)" aria-hidden="true"><use href="#edge" fill="currentColor"/></svg>
+</header>
+
+<main>
+  <section class="section" id="why">
+    <div class="wrap why">
+      <div class="why-photo rough reveal">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1559234938-b60fff04894d?w=1000&q=75&auto=format&fit=crop" alt="An older couple walking together in a garden" onerror="this.remove()"></div>
+      </div>
+      <div class="reveal">
+        <div class="head">
+          <h2 class="display">Worry should not be the only way to stay in touch</h2>
+          <p>Arranging a doctor for a parent from far away usually means phone calls, favours and guesswork. And the question "Are they okay today?" often goes unanswered until something goes wrong.</p>
+        </div>
+        <div class="why-pair">
+          <div>
+            <svg class="art" aria-hidden="true"><use href="#a-doctor-visit"/></svg>
+            <span><b>Care at home, arranged by a real team</b><span>A real team arranges doctors, nurses and blood tests at home.</span></span>
+          </div>
+          <div>
+            <svg class="art" aria-hidden="true"><use href="#a-checkin"/></svg>
+            <span><b>A one-tap check-in each morning</b><span>Parents say how they are, and families know straight away when they are needed.</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="promises" style="padding-top:0">
+    <div class="wrap">
+      <div class="head center reveal" style="text-align:center">
+        <h2 class="display">Four promises we design around</h2>
+      </div>
+      <div class="promises">
+        <article class="promise reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-parent"/></svg>
+          <h3>Dignity first</h3>
+          <p>The parent is in charge. They choose who is linked, what is shared, and can change it at any time.</p>
+        </article>
+        <article class="promise reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-checkin"/></svg>
+          <h3>Simple by design</h3>
+          <p>Large text, big buttons and plain words. If a step can be one tap, it is one tap.</p>
+        </article>
+        <article class="promise reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-lock"/></svg>
+          <h3>Private by default</h3>
+          <p>Health information stays with the parent, their approved family and our team. It is never sold or used for ads.</p>
+        </article>
+        <article class="promise reveal">
+          <svg class="art" aria-hidden="true"><use href="#a-question"/></svg>
+          <h3>Honest about limits</h3>
+          <p>We say clearly what SaathMera does, and just as clearly what it does not.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="limits" style="padding-top:0">
+    <div class="wrap limits">
+      <div class="head reveal">
+        <h2 class="display">What SaathMera is not</h2>
+        <p>Being upfront about this matters when the people using the app are older and the people relying on it are far away.</p>
+      </div>
+      <div class="limit-grid reveal">
+        <div class="limit">
+          <svg class="art" aria-hidden="true"><use href="#a-emergency"/></svg>
+          <div><h3>Not an emergency service</h3><p>We do not dispatch or track ambulances. In an emergency, dial <span class="sos">108</span>.</p></div>
+        </div>
+        <div class="limit">
+          <svg class="art" aria-hidden="true"><use href="#a-place"/></svg>
+          <div><h3>Not a location tracker</h3><p>The app does not track where anyone is.</p></div>
+        </div>
+        <div class="limit">
+          <svg class="art" aria-hidden="true"><use href="#a-wellness"/></svg>
+          <div><h3>Not personal medical advice</h3><p>The wellness update is general information. Doctors give advice during visits and consultations.</p></div>
+        </div>
+        <div class="limit">
+          <svg class="art" aria-hidden="true"><use href="#a-video-call"/></svg>
+          <div><h3>Not an in-app video service</h3><p>Doctor video consultations take place on WhatsApp.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="get-app">
+    <svg class="edge edge-top" style="color:var(--card)" aria-hidden="true"><use href="#edge" fill="currentColor"/></svg>
+    <div class="photo"><img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=2000&q=75&auto=format&fit=crop" alt="" onerror="this.remove()"></div>
+    <div class="wrap reveal">
+      <h2 class="display">Bring SaathMera home</h2>
+      <p>Free to download on Android. Choose a plan, or pay per visit, whenever you need care.</p>
+      <a class="play-badge" href="#" aria-label="Get it on Google Play"><img src="../../../apps/web/public/brand/google-play-badge.png" alt="Get it on Google Play" height="60"></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="../../brand/logos/horizontal-on-dark.svg" alt="SaathMera, Saath Har Kadam Par" width="1160" height="300">
+      <p>Care at home for elderly parents, and a daily check-in the whole family can see.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col"><h3>Product</h3><ul><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="#get-app">Get the app</a></li></ul></div>
+      <div class="foot-col"><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h3>Legal</h3><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms of use</a></li><li><a href="delete-account.html">Delete your account</a></li></ul></div>
+    </div>
+    <div class="foot-cta">
+      <h3>Care at home, one app for the whole family.</h3>
+      <dl>
+        <div><dt>Email</dt><dd><a href="mailto:support@saathmera.in">support@saathmera.in</a></dd></div>
+        <div><dt>Phone, every day 9:00 AM to 8:00 PM</dt><dd><a href="tel:+919876543210">+91 98765 43210</a></dd></div>
+        <div><dt>Office</dt><dd>SCO 112, Sector 34-A, Chandigarh 160022</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span>SaathMera</span><img src="../../brand/logos/mark-white.svg" alt=""><span>Saath Har Kadam Par</span><img src="../../brand/logos/mark-white.svg" alt=""></div>
+    <div class="marquee-track"><span>SaathMera</span><img src="../../brand/logos/mark-white.svg" alt=""><span>Saath Har Kadam Par</span><img src="../../brand/logos/mark-white.svg" alt=""></div>
+  </div>
+
+  <div class="wrap">
+    <div class="legal">
+      <span>© 2026 SaathMera Private Limited. In a medical emergency, dial <strong>108</strong>.</span>
+      <nav aria-label="Legal"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a><a href="delete-account.html">Delete your account</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const button = document.querySelector('.menu-btn');
+  const menu = document.getElementById('mobile-nav');
+  const setOpen = (open) => {
+    menu.classList.toggle('open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  button.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { items.forEach((item) => item.classList.add('in')); return; }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  items.forEach((item) => observer.observe(item));
+})();
+</script>
+</body>
+</html>
